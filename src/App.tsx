@@ -34,6 +34,7 @@ import './theme/variables.css';
 import Login from './pages/Login';
 import Menu from './pages/Menu';
 import HomeTabs from './pages/home-tabs/HomeTabs';
+import Register from './pages/Register';
 
 setupIonicReact();
 
@@ -48,5 +49,14 @@ const App: React.FC = () => (
     </IonReactRouter>
   </IonApp>
 );
+
+<IonReactRouter it35-lab ="/it35-lab">
+  <IonRouterOutlet>
+    <Route exact path="/it35-lab" component={Login} />
+    <Route exact path="/it35-lab/register" component={Register} />
+    <Route path="/it35-lab/app" component={HomeTabs} />
+    <Redirect from="/" to="/it35-lab" exact />
+  </IonRouterOutlet>
+</IonReactRouter>
 
 export default App;
