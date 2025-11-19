@@ -33,7 +33,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 import './theme/variables.css';
 import Login from './pages/Login';
 import Menu from './pages/Menu';
-import Register from './pages/Register';
+import HomeTabs from './pages/home-tabs/HomeTabs';
 
 setupIonicReact();
 
@@ -43,7 +43,7 @@ const App: React.FC = () => (
       <IonRouterOutlet>
       <Route exact path="/it35-lab" component={Login} />
       <Route path="/it35-lab/app" component={Menu} />
-       <Route path="/it35-lab/register" component={Register} />
+      <Route path="/it35-lab/app" component={HomeTabs} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
