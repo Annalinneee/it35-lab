@@ -11,14 +11,20 @@ import {
 
 import { useHistory } from 'react-router';
 
+// Your logo (uploaded file)
+const Logo = "https://d2j6dbq0eux0bg.cloudfront.net/images/81147760/3537219765.png";
+
+// Background image from the link you provided
+const BgImage =
+  "https://blog.janbox.com/wp-content/uploads/2021/02/Best-Anime-Online-Store-1.png";
+
 const LandingPage: React.FC = () => {
   const history = useHistory();
 
   const goToLogin = () => {
-    history.push('pages/Login');  // 👈 Redirect to login
+    history.push('pages/Login');
   };
 
-  // Sample products
   const products = [
     { id: 1, name: 'Product 1', description: 'Short description 1', price: '$10', img: 'https://down-ph.img.susercontent.com/file/sg-11134201-7qvd7-ljf8g8x699fxef' },
     { id: 2, name: 'Product 2', description: 'Short description 2', price: '$15', img: 'https://i.redd.it/s0yoar7uw1m21.jpg' },
@@ -38,72 +44,96 @@ const LandingPage: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
 
-        {/* HERO SECTION */}
-        <div style={{
-          background: '#4f46e5',
-          color: 'white',
-          padding: '60px 20px',
-          textAlign: 'center'
-        }}>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: 0 }}>
+        {/* HERO SECTION with BACKGROUND IMAGE */}
+        <div
+          style={{
+            backgroundImage: `url(${BgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            padding: "60px 20px",
+            textAlign: "center",
+            color: "white",
+            backdropFilter: "brightness(0.5)"
+          }}
+        >
+
+          {/* LOGO */}
+          <img
+            src={Logo}
+            alt="Kawaii Haven Logo"
+            style={{
+              width: "150px",
+              height: "150px",
+              objectFit: "contain",
+              marginBottom: "20px",
+              background: "rgba(255,255,255,0.6)",
+              padding: "10px",
+              borderRadius: "20px"
+            }}
+          />
+
+          <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", margin: 0 }}>
             Welcome to Kawaii Haven
           </h1>
-          <p style={{ fontSize: '1.2rem', marginTop: 10, opacity: 0.9 }}>
+
+          <p style={{ fontSize: "1.2rem", marginTop: 10 }}>
             Adorable Finds for Every Heart
           </p>
 
-          {/* GET STARTED → LOGIN */}
-          <IonButton 
+          <IonButton
             expand="block"
             style={{
-              marginTop: '20px',
-              width: '200px',
-              marginLeft: 'auto',
-              marginRight: 'auto'
+              marginTop: "20px",
+              width: "200px",
+              marginLeft: "auto",
+              marginRight: "auto"
             }}
             color="light"
-            onClick={goToLogin}   // 👈 FIXED
+            onClick={goToLogin}
           >
             Get Started
           </IonButton>
         </div>
 
-        {/* PRODUCTS SECTION */}
-        <section style={{
-          padding: '40px 20px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '20px'
-        }}>
+        {/* PRODUCTS */}
+        <section
+          style={{
+            padding: "40px 20px",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "20px"
+          }}
+        >
           {products.map(product => (
-            <IonCard key={product.id} style={{ width: '220px' }}>
+            <IonCard key={product.id} style={{ width: "220px" }}>
               <IonImg src={product.img} />
               <IonCardHeader>
                 <IonCardTitle>{product.name}</IonCardTitle>
               </IonCardHeader>
               <IonCardContent>
                 <p>{product.description}</p>
-                <p style={{ fontWeight: 'bold' }}>{product.price}</p>
+                <p style={{ fontWeight: "bold" }}>{product.price}</p>
 
-                {/* BUY NOW → LOGIN */}
                 <IonButton expand="full" color="primary" onClick={goToLogin}>
                   Buy Now
                 </IonButton>
-
               </IonCardContent>
             </IonCard>
           ))}
         </section>
 
         {/* FOOTER */}
-        <footer style={{
-          padding: '30px 20px',
-          background: '#111',
-          color: 'white',
-          textAlign: 'center'
-        }}>
-          <p>© 2025 Kawaii Haven . All rights reserved.</p>
+        <footer
+          style={{
+            padding: "30px 20px",
+            background: "#111",
+            color: "white",
+            textAlign: "center"
+          }}
+        >
+          <p>© 2025 Kawaii Haven. All rights reserved.</p>
         </footer>
 
       </IonContent>
