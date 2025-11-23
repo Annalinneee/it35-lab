@@ -7,8 +7,9 @@ const BgImage = "https://blog.janbox.com/wp-content/uploads/2021/02/Best-Anime-O
 const LandingPage: React.FC = () => {
   const history = useHistory();
 
+  // FIXED ROUTING
   const goToLogin = () => {
-    history.push('/login');
+    history.push('/it35-lab');
   };
 
   const products = [
@@ -29,6 +30,7 @@ const LandingPage: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
+
         {/* HERO SECTION */}
         <div
           style={{
@@ -42,7 +44,6 @@ const LandingPage: React.FC = () => {
             backdropFilter: "brightness(0.5)"
           }}
         >
-          {/* LOGO */}
           <img
             src={Logo}
             alt="Kawaii Haven Logo"
@@ -94,6 +95,8 @@ const LandingPage: React.FC = () => {
               <IonCardContent>
                 <p>{product.description}</p>
                 <p style={{ fontWeight: "bold" }}>{product.price}</p>
+
+                {/* BUY BUTTON → LOGIN */}
                 <IonButton expand="full" color="primary" onClick={goToLogin}>
                   Buy Now
                 </IonButton>
@@ -106,6 +109,7 @@ const LandingPage: React.FC = () => {
         <footer style={{ padding: "30px 20px", background: "#111", color: "white", textAlign: "center" }}>
           <p>© 2025 Kawaii Haven. All rights reserved.</p>
         </footer>
+
       </IonContent>
     </IonPage>
   );

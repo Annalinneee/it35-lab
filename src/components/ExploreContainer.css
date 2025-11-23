@@ -23,7 +23,3 @@
   text-decoration: none;
 }
 
-/* CardNav.css */
-nav div:hover .dropdown {
-  display: flex;
-}
